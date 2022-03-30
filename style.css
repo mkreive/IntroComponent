@@ -115,3 +115,26 @@ input:focus {
     font-weight: 700;
     text-decoration: none;
 }
+
+.error {
+    visibility: hidden;
+    width: 100%;
+    padding: 1rem;
+    padding-left: 2rem;
+    margin-bottom: 1.2rem;
+    display: inline-block;
+    border: 2px solid var(--color-primary-red);
+    border-radius: 5px;
+    font-weight: 700;
+    color: var(--color-primary-red);
+    background-image: url(https://res.cloudinary.com/kreiva/image/upload/v1648627824/FrontendMentor/icon-error_o2yqzj.svg);
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+}
+
+.error:focus {
+    outline: none;
+    border: 1px solid var(--color-accent-blue);
+    background-image: none;
+    color: black;
+}
