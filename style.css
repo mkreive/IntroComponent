@@ -1,0 +1,30 @@
+:root {
+    --color-primary-red: hsl(0, 100%, 74%);
+    --color-primary-green: hsl(154, 59%, 51%);
+    --color-accent-blue: hsl(248, 32%, 49%);
+    --color-neutral-dark-blue: hsl(249, 10%, 26%);
+    --color-neutral-grayish-blue: hsl(246, 25%, 77%);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: grid;
+    height: 100vh;
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    font-size: 62.5%;
+    /* 1rem=10px; 10px/16px default size=62.5% */
+    line-height: 1.3rem;
+    background-image: url(https://res.cloudinary.com/kreiva/image/upload/v1648627825/FrontendMentor/bg-intro-desktop_evcn0o.png);
+    background-color: var(--color-primary-red);
+    place-items: center;
+}
+.wrapper {
+    display: flex;
+}
