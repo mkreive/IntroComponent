@@ -28,20 +28,20 @@ body {
     place-items: center;
 }
 .wrapper {
-    position: relative;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
-    margin: 7rem;
+    padding: 15rem;
 }
 
 /* LEFT SIDE */
 .left {
+    width: 43%;
     color: white;
-    margin: 12rem;
 }
 .title {
     font-size: 500%;
-    line-height: 4rem;
+    line-height: 3.5rem;
     padding-bottom: 3rem;
 }
 .text {
@@ -51,6 +51,25 @@ body {
 
 /* RIGHT SIDE */
 .right {
-    display: flex;
-    flex-direction: column;
+    width: 47%;
+}
+.popup {
+    width: 100%;
+    background-color: var(--color-accent-blue);
+    box-shadow: 0px 8px rgba(0, 0, 0, 0.171);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 150%;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.card {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 8px rgba(0, 0, 0, 0.171);
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+.container {
 }
