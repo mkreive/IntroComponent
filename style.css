@@ -1,3 +1,4 @@
+/* MAIN */
 :root {
     --color-primary-red: hsl(0, 100%, 74%);
     --color-primary-green: hsl(154, 59%, 51%);
@@ -21,10 +22,35 @@ body {
     font-size: 62.5%;
     /* 1rem=10px; 10px/16px default size=62.5% */
     line-height: 1.3rem;
+    font-weight: 400;
     background-image: url(https://res.cloudinary.com/kreiva/image/upload/v1648627825/FrontendMentor/bg-intro-desktop_evcn0o.png);
     background-color: var(--color-primary-red);
     place-items: center;
 }
 .wrapper {
+    position: relative;
     display: flex;
+    justify-content: space-between;
+    margin: 7rem;
+}
+
+/* LEFT SIDE */
+.left {
+    color: white;
+    margin: 12rem;
+}
+.title {
+    font-size: 500%;
+    line-height: 4rem;
+    padding-bottom: 3rem;
+}
+.text {
+    font-size: 180%;
+    line-height: 1.8rem;
+}
+
+/* RIGHT SIDE */
+.right {
+    display: flex;
+    flex-direction: column;
 }
