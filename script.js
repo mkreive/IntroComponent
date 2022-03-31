@@ -101,7 +101,7 @@ const showError = (input, placeholder, errorMessage) => {
     formField.classList.remove("input__success");
     formField.classList.add("error");
 
-    formField.placeholder = example;
+    formField.placeholder = placeholder;
 };
 const showSuccess = (input) => {
     const formField = input;
@@ -128,3 +128,7 @@ form.addEventListener("submit", function (e) {
         });
     }
 });
+
+// problem1 = isvalyti viska po submito erorrai ar ne isvalyti viska
+//problem2 = po erroro kai submitina panaikinti erorro clase ir isvaizda
+// paziureti jono logina kurse bankisto
