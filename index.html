@@ -38,71 +38,73 @@
                     <b>Try it free 7 days</b> then $20/mo. thereafter
                 </div>
                 <div class="card">
-                    <form action="action_page.php">
-                        <div class="container">
-                            <label for="firstName"></label>
+                    <form
+                        id="submitForm"
+                        name="submitForm"
+                        action="/form.php"
+                        method="post"
+                    >
+                        <div class="form-field">
                             <input
+                                class="input__success"
                                 type="text"
                                 placeholder="First Name"
                                 name="firstName"
-                                required
+                                id="firstName"
                             />
+                        </div>
 
-                            <label for="lastName"></label>
+                        <div class="form-field">
                             <input
+                                class="input__success"
                                 type="text"
                                 placeholder="Last Name"
                                 name="lastName"
-                                required
+                                id="lastName"
                             />
+                        </div>
 
-                            <label for="email"></label>
+                        <div class="form-field">
                             <input
+                                class="input__success"
                                 type="text"
                                 placeholder="Email"
                                 name="email"
-                                required
+                                id="email"
                             />
+                        </div>
 
-                            <label for="address"></label>
+                        <div class="form-field">
                             <input
+                                class="input__success"
                                 type="text"
                                 placeholder="Address"
                                 name="address"
-                                required
+                                id="address"
                             />
+                        </div>
 
-                            <label for="psw"></label>
+                        <div class="form-field">
                             <input
+                                class="input__success"
                                 id="password"
                                 type="password"
                                 placeholder="Password"
                                 name="psw"
-                                required
                             />
+                        </div>
 
-                            <div class="submitButton">
-                                <button type="submit" class="button">
-                                    Claim your free trial
-                                </button>
-                            </div>
+                        <button type="submit" class="button">
+                            Claim your free trial
+                        </button>
 
-                            <!-- <input
-                                class="error"
-                                type="error"
-                                placeholder=""
-                                name="error"
-                                required
-                            /> -->
-
-                            <div class="terms">
-                                By clicking the button you are agreeing to our
-                                <a
-                                    href="https://unsplash.com/photos/TtJ0CLjLi6w"
-                                    class="link"
-                                    >Terms and Services</a
-                                >
-                            </div>
+                        <div class="terms">
+                            By clicking the button you are agreeing to our
+                            <a
+                                href="https://unsplash.com/photos/TtJ0CLjLi6w"
+                                class="link"
+                                >Terms and Services</a
+                            >
                         </div>
                     </form>
                 </div>
