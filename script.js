@@ -10,8 +10,8 @@ const addressEl = document.getElementById("address");
 const formField = document.querySelectorAll(".formField");
 
 // VALIDATIONS
-
 const isRequired = (value) => (value === "" ? false : true);
+
 const isBetween = (length, min, max) =>
     length < min || length > max ? false : true;
 
@@ -65,6 +65,20 @@ const checkPassword = (passwordSubmitted) => {
     }
     return valid;
 };
+const checkAddress = (addressSubmitted) => {
+    let valid = false;
+    const min = 3,
+        max = 50;
+    const address = addressSubmitted.value.trim();
+    if (!isRequired(address) || !isBetween(address.length, min, max)) {
+        let message = "Password123";
+        showError(passwordSubmitted, message);
+    } else {
+        showSuccess(passwordSubmitted);
+        valid = true;
+    }
+    return valid;
+};
 
 // ERROR OR SUCESS CLASSES
 const showError = (input, message) => {
@@ -73,10 +87,10 @@ const showError = (input, message) => {
     formField.classList.remove("input__success");
     formField.classList.add("error");
 
-    const errorMessageEl = formField.nextElementSibling;
+    // const errorMessageEl = formField.nextElementSibling;
 
-    console.log(errorMessageEl);
-    errorMessageEl.textContent = message;
+    // console.log(errorMessageEl);
+    // errorMessageEl.textContent = message;
 };
 const showSuccess = (input) => {
     const formField = input;
@@ -103,6 +117,9 @@ form.addEventListener("submit", function (e) {
         isAddressValid;
 
     if (isFormValid) {
-        console.log("form is valid");
+        let allInputs = e.target.querySelectorAll(".input__success");
+        allInputs.forEach((input) => {
+            input.value = "";
+        });
     }
 });
