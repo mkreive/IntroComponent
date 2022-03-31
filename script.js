@@ -10,6 +10,7 @@ const addressEl = document.getElementById("address");
 const formField = document.querySelectorAll(".formField");
 
 // VALIDATIONS
+
 const isRequired = (value) => (value === "" ? false : true);
 
 const isBetween = (length, min, max) =>
@@ -26,27 +27,47 @@ const isPasswordSecure = (password) => {
     return re.test(password);
 };
 
-const checkUsername = (name) => {
+const checkFirsName = (name) => {
     let valid = false;
     const min = 3,
         max = 25;
-    const username = name.value.trim();
+    const firsName = name.value.trim();
 
-    if (!isRequired(username) || !isBetween(username.length, min, max)) {
-        let message = "Smith";
-        showError(name, message);
+    if (!isRequired(firsName) || !isBetween(firsName.length, min, max)) {
+        let placeholder = "John";
+        let errorMessage = "First Name cannot be empty";
+        showError(name, placeholder, errorMessage);
     } else {
         showSuccess(name);
         valid = true;
     }
     return valid;
 };
+
+const checkLastName = (name) => {
+    let valid = false;
+    const min = 3,
+        max = 25;
+    const lastName = name.value.trim();
+
+    if (!isRequired(lastName) || !isBetween(lastName.length, min, max)) {
+        let placeholder = "Smith";
+        let errorMessage = "Last Name cannot be empty";
+        showError(name, placeholder, errorMessage);
+    } else {
+        showSuccess(name);
+        valid = true;
+    }
+    return valid;
+};
+
 const checkEmail = (emailAddress) => {
     let valid = false;
     const email = emailAddress.value.trim();
     if (!isRequired(email) || !isEmailValid(email)) {
-        let message = "email@email.com";
-        showError(emailAddress, message);
+        let placeholder = "email@email.com";
+        let errorMessage = "Looks like this is not an email";
+        showError(emailAddress, placeholder, errorMessage);
     } else {
         showSuccess(emailAddress);
         valid = true;
@@ -57,22 +78,10 @@ const checkPassword = (passwordSubmitted) => {
     let valid = false;
     const password = passwordSubmitted.value.trim();
     if (!isRequired(password) || !isPasswordSecure(password)) {
-        let message = "Password123";
-        showError(passwordSubmitted, message);
-    } else {
-        showSuccess(passwordSubmitted);
-        valid = true;
-    }
-    return valid;
-};
-const checkAddress = (addressSubmitted) => {
-    let valid = false;
-    const min = 3,
-        max = 50;
-    const address = addressSubmitted.value.trim();
-    if (!isRequired(address) || !isBetween(address.length, min, max)) {
-        let message = "Password123";
-        showError(passwordSubmitted, message);
+        let placeholder = "Password123";
+        let errorMessage =
+            "Password must be at least 8 characters long and include number";
+        showError(passwordSubmitted, placeholder, errorMessage);
     } else {
         showSuccess(passwordSubmitted);
         valid = true;
@@ -81,40 +90,36 @@ const checkAddress = (addressSubmitted) => {
 };
 
 // ERROR OR SUCESS CLASSES
-const showError = (input, message) => {
+const showError = (input, placeholder, errorMessage) => {
     const formField = input;
+
+    let inputErrorMessage = document.createElement("span");
+    inputErrorMessage.classList.add("error-message");
+    inputErrorMessage.textContent = errorMessage;
+    formField.after(inputErrorMessage);
 
     formField.classList.remove("input__success");
     formField.classList.add("error");
 
-    // const errorMessageEl = formField.nextElementSibling;
-
-    // console.log(errorMessageEl);
-    // errorMessageEl.textContent = message;
+    formField.placeholder = example;
 };
 const showSuccess = (input) => {
     const formField = input;
     formField.classList.remove("error");
     formField.classList.add("input__success");
-    // input.value = "";
 };
 
 // LISTENER
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    let isFirstNameValid = checkUsername(firstName),
-        isLastNameValid = checkUsername(lastName),
+    let isFirstNameValid = checkFirsName(firstName),
+        isLastNameValid = checkLastName(lastName),
         isEmailValid = checkEmail(emailEl),
-        isPasswordValid = checkPassword(passwordEl),
-        isAddressValid = checkUsername(addressEl);
+        isPasswordValid = checkPassword(passwordEl);
 
     let isFormValid =
-        isFirstNameValid &&
-        isLastNameValid &&
-        isEmailValid &&
-        isPasswordValid &&
-        isAddressValid;
+        isFirstNameValid && isLastNameValid && isEmailValid && isPasswordValid;
 
     if (isFormValid) {
         let allInputs = e.target.querySelectorAll(".input__success");

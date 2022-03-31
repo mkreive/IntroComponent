@@ -143,10 +143,12 @@ body {
 }
 
 .error-message {
-    position: absolute;
+    position: relative;
+    display: flex;
+    justify-content: end;
     width: 100%;
-    transform: translateY(3.3rem) translateX(-32rem);
     color: var(--color-primary-red);
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-top: -1rem;
+    margin-bottom: 0.8rem;
 }
