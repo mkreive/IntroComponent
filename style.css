@@ -130,10 +130,22 @@ body {
     background-repeat: no-repeat;
     background-position: 95% 50%;
 }
+.error::placeholder {
+    color: var(--color-primary-red);
+}
 
 .error:focus {
     outline: none;
-    border: 1px solid var(--color-accent-blue);
+    border: 1px solid var(--color-primary-red);
     background-image: none;
     color: black;
+}
+
+.error-message {
+    position: absolute;
+    width: 100%;
+    transform: translateY(3.3rem) translateX(-32rem);
+    color: var(--color-primary-red);
+    font-weight: 600;
+    margin-bottom: 1rem;
 }

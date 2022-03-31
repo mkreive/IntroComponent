@@ -57,8 +57,7 @@ const checkPassword = (passwordSubmitted) => {
     let valid = false;
     const password = passwordSubmitted.value.trim();
     if (!isRequired(password) || !isPasswordSecure(password)) {
-        let message =
-            "Must contain at least one number and be 8 characters long";
+        let message = "Password123";
         showError(passwordSubmitted, message);
     } else {
         showSuccess(passwordSubmitted);
@@ -70,15 +69,20 @@ const checkPassword = (passwordSubmitted) => {
 // ERROR OR SUCESS CLASSES
 const showError = (input, message) => {
     const formField = input;
+
     formField.classList.remove("input__success");
     formField.classList.add("error");
-    formField.textContent = message;
+
+    const errorMessageEl = formField.nextElementSibling;
+
+    console.log(errorMessageEl);
+    errorMessageEl.textContent = message;
 };
 const showSuccess = (input) => {
     const formField = input;
     formField.classList.remove("error");
     formField.classList.add("input__success");
-    input.value = "";
+    // input.value = "";
 };
 
 // LISTENER
