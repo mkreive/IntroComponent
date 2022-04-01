@@ -8,6 +8,7 @@ const passwordEl = document.getElementById("password");
 const emailEl = document.getElementById("email");
 const addressEl = document.getElementById("address");
 const formField = document.querySelectorAll(".formField");
+const popup = document.querySelector(".popup");
 
 // VALIDATIONS
 
@@ -93,14 +94,14 @@ const checkPassword = (passwordSubmitted) => {
 const showError = (input, placeholder, errorMessage) => {
     const formField = input;
 
-    let inputErrorMessage = document.createElement("span");
-    inputErrorMessage.classList.add("error-message");
-    inputErrorMessage.textContent = errorMessage;
-    formField.after(inputErrorMessage);
-
+    if (!formField.nextElementSibling) {
+        let inputErrorMessage = document.createElement("span");
+        inputErrorMessage.classList.add("error-message");
+        inputErrorMessage.textContent = errorMessage;
+        formField.after(inputErrorMessage);
+    }
     formField.classList.remove("input__success");
     formField.classList.add("error");
-
     formField.placeholder = placeholder;
 };
 const showSuccess = (input) => {
@@ -122,9 +123,16 @@ form.addEventListener("submit", function (e) {
         isFirstNameValid && isLastNameValid && isEmailValid && isPasswordValid;
 
     if (isFormValid) {
-        let allInputs = e.target.querySelectorAll(".input__success");
+        let allInputs = e.target.querySelectorAll("input");
         allInputs.forEach((input) => {
             input.value = "";
+
+            if (input.nextSibling) {
+                input.parentNode.removeChild(input.nextSibling);
+            }
+            input.placeholder = "";
+            popup.textContent =
+                "Congratulations! You signed up for free trial!";
         });
     }
 });
