@@ -27,7 +27,7 @@ const isPasswordSecure = (password) => {
     return re.test(password);
 };
 
-const checkFirsName = (name) => {
+const checkFirstName = (name) => {
     let valid = false;
     const min = 3,
         max = 25;
@@ -113,7 +113,7 @@ const showSuccess = (input) => {
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    let isFirstNameValid = checkFirsName(firstName),
+    let isFirstNameValid = checkFirstName(firstName),
         isLastNameValid = checkLastName(lastName),
         isEmailValid = checkEmail(emailEl),
         isPasswordValid = checkPassword(passwordEl);
@@ -128,7 +128,3 @@ form.addEventListener("submit", function (e) {
         });
     }
 });
-
-// problem1 = isvalyti viska po submito erorrai ar ne isvalyti viska
-//problem2 = po erroro kai submitina panaikinti erorro clase ir isvaizda
-// paziureti jono logina kurse bankisto
